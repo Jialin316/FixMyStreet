@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="icon" href="../static/images/Icone_Louv1cident.png">
+</head>
+
+<body>
+   
+    <header>
+
+        <nav>
+            <!-- Logo su site -->
+            <a href="./acceuil.html"><img src="../static/images/Marque_Louv1cident.png" alt="Marque_Louv1cident"></a>
+            <!-- Header avec les différentes pages -->
+            <ul>
+                <a href="./acceuil.html">Accueil</a>
+                <a href="./connexion.html">Se connecter</a>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <section class="content">
+
+        <!-- Case pour la connexion à un compte existant -->
+        <div id="case_connexion">
+            <p>Se connecter</p>
+            <!-- Input du nom d'utilisateur -->
+            <label for="connexion_nom_utilisateur">Nom d'utilisateur :</label>
+            <input type="text" name="connexion_nom_utilisateur" id="connexion_nom_utilisateur">
+            <!-- Input du mot de passe  -->
+            <label for="connexion_mdp">Mot de passe :</label>
+            <input type="password" name="connexion_mdp" id="connexion_mdp">
+            <!-- Bouton submit  -->
+            <input type="submit" value="Se connecter">
+        </div>
+
+        <!-- Case pour l'inscription à un nouveau compte -->
+        <div id="case_inscription">
+            <p>Créer un compte</p>
+            <!-- Input du nom d'utilisateur -->
+            <label for="inscription_nom_utilisateur">Nom d'utilisateur :</label>
+            <input type="text" name="inscription_nom_utilisateur" id="inscription_nom_utilisateur">
+            <!-- Input du mot de passe  -->
+            <label for="inscription_mdp">Mot de passe :</label>
+            <input type="password" name="inscription_mdp" id="inscription_mdp">
+            <!-- Input du nom complet -->
+            <label for="">Nom complet</label>
+            <input type="text" name="inscription_nom" id="inscription_nom">
+            <!-- Input de l'adresse mail -->
+            <label for="">E-mail</label>
+            <input type="email" name="inscription_email" id="inscription_email">
+            <!-- Bouton submit  -->
+            <input type="submit" value="Créer un compte">
+        </div>
+
+    </section>
+
+    <footer>
+    </footer>
+
+</body>
+
+</html>
