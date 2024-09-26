@@ -1,0 +1,38 @@
+.case_identification {
+    border: 1px solid black;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 350px;
+}
+
+.case_identification p {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 0 30px 0;
+    max-width: 300px;
+}
+
+.identification_form {
+    display: flex;
+    max-width: 300px;  
+    flex-direction: column;
+    gap: 15px;
+}
+
+.identification_form .submit_button {
+    width: 100%;
+    align-items: center;
+}
+
+.identification_form .submit_button input{
+    padding: 10px 20px;
+    font-size:medium;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    border: solid 1px #3e63dd;
+    border-bottom: solid 1px #90c2ff;
+    background: #2952d6;
+    color: #fff;
+    font-weight: bolder;
+}
