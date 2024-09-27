@@ -1,38 +1,47 @@
-.case_identification {
+
+
+/* Page d'identification */
+.identification_form {
+    display: flex;
+    max-width: 350px;
+    flex-direction: column;
+    gap: 15px;
+    
     border: 1px solid black;
     margin-bottom: 50px;
     border-radius: 20px;
     padding: 30px;
-    max-width: 350px;
 }
 
-.case_identification p {
+.identification_form p {
     font-size: 30px;
     font-weight: bold;
     margin: 0 0 30px 0;
-    max-width: 300px;
+    max-width: 100%;
 }
 
-.identification_form {
-    display: flex;
-    max-width: 300px;  
-    flex-direction: column;
-    gap: 15px;
-}
-
-.identification_form .submit_button {
-    width: 100%;
-    align-items: center;
-}
-
-.identification_form .submit_button input{
+.identification_form .submit_container input{
     padding: 10px 20px;
-    font-size:medium;
+    font-size: medium;
     letter-spacing: 2px;
     border-radius: 10px;
     border: solid 1px #3e63dd;
-    border-bottom: solid 1px #90c2ff;
     background: #2952d6;
     color: #fff;
     font-weight: bolder;
+}
+
+.input_identification label{
+    width: 100%;
+    font-size: medium;
+    pointer-events: none;
+    background-color: transparent;
+}
+
+.input_identification input{
+    letter-spacing: 0.5px;
+    width: 100%;
+    padding: 7px 0px;
+    border-radius: 5px;
+    border: solid 1px grey;
 }

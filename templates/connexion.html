@@ -28,67 +28,61 @@
     <section class="content">
 
         <!-- Case pour la connexion à un compte existant -->
-        <div class="case_identification">
+        <form class="identification_form" action="">
             <p>Se connecter</p>
-            <form class="identification_form" action="">
 
-                <!-- Input du nom d'utilisateur -->
-                <div class="input_identification">
-                    <label for="connexion_nom_utilisateur">Nom d'utilisateur :</label>
-                    <input required="" type="text" name="connexion_nom_utilisateur" id="connexion_nom_utilisateur">
-                </div>
+            <!-- Input du nom d'utilisateur -->
+            <div class="input_identification">
+                <label for="connexion_nom_utilisateur">Nom d'utilisateur :</label>
+                <input required="" type="text" name="connexion_nom_utilisateur" id="connexion_nom_utilisateur">
+            </div>
 
-                <!-- Input du mot de passe  -->
-                <div class="input_identification">
-                    <label for="connexion_mdp">Mot de passe :</label>
-                    <input required="" type="password" name="connexion_mdp" id="connexion_mdp">
-                </div>
+            <!-- Input du mot de passe  -->
+            <div class="input_identification">
+                <label for="connexion_mdp">Mot de passe :</label>
+                <input required="" type="password" name="connexion_mdp" id="connexion_mdp">
+            </div>
                 
-                <!-- Bouton submit  -->
-                <div class="submit_button">
-                    <input type="submit" value="Se connecter">
-                </div>
+            <!-- Bouton submit  -->
+            <div class="submit_container">
+                <input type="submit" value="Se connecter">
+            </div>
 
-            </form>
-        </div>
+        </form>
 
         <!-- Case pour l'inscription à un nouveau compte -->
-        <div class="case_identification">
+        <form class="identification_form" action="">
             <p>Créer un compte</p>
-            <form class="identification_form" action="">
 
-                <!-- Input du nom d'utilisateur -->
-                <div class="input_identification">
-                    <label for="inscription_nom_utilisateur">Nom d'utilisateur :</label>
-                    <input required="" type="text" name="inscription_nom_utilisateur" id="inscription_nom_utilisateur">
-                </div>
+            <!-- Input du nom d'utilisateur -->
+            <div class="input_identification">
+                <label for="inscription_nom_utilisateur">Nom d'utilisateur :</label>
+                <input required="" type="text" name="inscription_nom_utilisateur" id="inscription_nom_utilisateur">
+            </div>
 
-                <!-- Input du mot de passe  -->
-                <div class="input_identification">
-                    <label for="inscription_mdp">Mot de passe :</label>
-                    <input required="" type="password" name="inscription_mdp" id="inscription_mdp">
-                </div>
+            <!-- Input du mot de passe  -->
+            <div class="input_identification">
+                <label for="inscription_mdp">Mot de passe :</label>
+                <input required="" type="password" name="inscription_mdp" id="inscription_mdp">
+            </div>
 
-                <!-- Input du nom complet -->
-                <div class="input_identification">
-                    <label for="">Nom complet :</label>
-                    <input required="" type="text" name="inscription_nom" id="inscription_nom">
-                </div>
+            <!-- Input du nom complet -->
+            <div class="input_identification">
+                <label for="">Nom complet :</label>
+                <input required="" type="text" name="inscription_nom" id="inscription_nom">
+            </div>
 
-                <!-- Input de l'adresse mail -->
-                <div class="input_identification">
-                    <label for="">E-mail :</label>
-                    <input required="" type="email" name="inscription_email" id="inscription_email">
-                </div>
+            <!-- Input de l'adresse mail -->
+            <div class="input_identification">
+                <label for="">E-mail :</label>
+                <input required="" type="email" name="inscription_email" id="inscription_email">
+            </div>
 
-                <!-- Bouton submit  -->
-                <div class="submit_button">
-                     <input type="submit" value="Créer un compte">
-                </div>
-                
-
-            </form>
-        </div>
+            <!-- Bouton submit  -->
+            <div class="submit_container">
+                    <input type="submit" value="Créer un compte">
+            </div>
+        </form>
 
     </section>
 
