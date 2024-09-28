@@ -1,24 +1,23 @@
-Feature: User authentification
-Scenario: Create account
-Given the username is not already used
-And the email is not already used
-And the mobile number is not already used
-And the password is valid
-And the full name exists
-And the reCAPTCHA is valid # antirobot
-When the user submits the account creation form
-Then a confirmation email should be sent to the user
-And the user confirms the account creation via the email link
-Then the account should be created successfully
+Feature: Authentification de l'utilisateur
+Scenario: Créer un compte
+Étant donné que le nom d'utilisateur n'est pas déjà utilisé
+Et que l'email n'est pas déjà utilisé
+Et que le numéro de mobile n'est pas déjà utilisé
+Et que le mot de passe est valide
+Et que le nom complet existe
+Et que le reCAPTCHA est valide
+Lorsque l'utilisateur soumet le formulaire de création de compte
+Alors un email de confirmation doit être envoyé à l'utilisateur
+Et l'utilisateur confirme la création du compte via le lien dans l'email
+Alors le compte doit être créé avec succès
 
 
 
-Scenario: Create account with already registered email or phone
-Given the username is not already used
-And the email is already registered
-And the mobile number is already registered
-And the password is valid
-And the full name exists
-And the reCAPTCHA is valid
-When the user submits the account creation form
-Then the user should see a message saying "This email or phone number is already registered. Please logg in or use a different email or phone number."
+Scenario: Créer un compte avec un email déjà enregistré
+Étant donné que le nom d'utilisateur n'est pas déjà utilisé
+Et que l'email est déjà enregistré
+Et que le mot de passe est valide
+Et que le nom complet existe
+Et que le reCAPTCHA est valide
+Lorsque l'utilisateur soumet le formulaire de création de compte
+Alors l'utilisateur doit voir un message disant : "Cet email est déjà enregistré. Veuillez vous connecter ou utiliser un autre email ."

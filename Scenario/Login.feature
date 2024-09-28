@@ -1,35 +1,35 @@
-Feature: User authentication
+Feature: Authentification de l'utilisateur
 
-Scenario: LOGIN
-Given the username is already used
-And the email is registered
-And the password is correct
-When the user submits the login form
-Then the user should be logged in successfully
-
-
-Scenario: LOGIN with incorrect password
-Given the username is already used
-And the email is registered
-And the password is incorrect
-When the user submits the login form
-Then the user should see a "Forgot Password?" button
-When the user clicks on the "Forgot Password?" button
-Then the user should choose a recovery method 
-When the user selects Email
-Then a link should be sent to the user's email to reset the password
-When the user selects Phone Number
-Then a link should be sent to the user's phone number to reset the password
-When the user clicks on the reset link
-Then the user should be able to set a new password
-When the user returns to the login page
-And enters the new password
-Then the user should be logged in successfully
+Scenario: CONNEXION
+Étant donné que le nom d'utilisateur est déjà utilisé
+Et que l'email est enregistré
+Et que le mot de passe est correct
+Lorsque l'utilisateur soumet le formulaire de connexion
+Alors l'utilisateur doit être connecté avec succès
 
 
-Scenario: LOGIN with unregistered email
-Given the username is already used
-And the email is not registered
-And the password is correct
-When the user submits the login form
-Then the user should see a message saying "Email does not exist"
+Scenario: CONNEXION avec mot de passe incorrect
+Étant donné que le nom d'utilisateur est déjà utilisé
+Et que l'email est enregistré
+Et que le mot de passe est incorrect
+Lorsque l'utilisateur soumet le formulaire de connexion
+Alors l'utilisateur doit voir un bouton "Mot de passe oublié ?"
+Lorsque l'utilisateur clique sur le bouton "Mot de passe oublié ?"
+Alors l'utilisateur doit choisir une méthode de récupération
+Lorsque l'utilisateur sélectionne l'option Email
+Alors un lien doit être envoyé à l'email de l'utilisateur pour réinitialiser le mot de passe
+Lorsque l'utilisateur sélectionne l'option Numéro de téléphone
+Alors un lien doit être envoyé au numéro de téléphone de l'utilisateur pour réinitialiser le mot de passe
+Lorsque l'utilisateur clique sur le lien de réinitialisation
+Alors l'utilisateur doit pouvoir définir un nouveau mot de passe
+Lorsque l'utilisateur retourne à la page de connexion
+Et entre le nouveau mot de passe
+Alors l'utilisateur doit être connecté avec succès
+
+
+Scenario: CONNEXION avec un email non enregistré
+Étant donné que le nom d'utilisateur est déjà utilisé
+Et que l'email n'est pas enregistré
+Et que le mot de passe est correct
+Lorsque l'utilisateur soumet le formulaire de connexion
+Alors l'utilisateur doit voir un message indiquant : "L'email n'existe pas"
