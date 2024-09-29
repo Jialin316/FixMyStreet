@@ -1,0 +1,58 @@
+
+.content{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Page d'identification */
+.identification_form {
+    display: flex;
+    max-width: 100%;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid black;
+    margin-bottom: 50px;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 10px 30px;
+}
+
+.identification_form p {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    max-width: 100%;
+    color: #283f8a;
+    font-family: Helvetica;
+}
+
+.identification_form .submit_container input{
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: medium;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    border: solid 1px #3e63dd;
+    background: #2952d6;
+    color: #fff;
+    font-weight: bolder;
+}
+
+.input_identification label{
+    letter-spacing: 1px;
+    width: 100%;
+    font-size: medium;
+    pointer-events: none;
+    background-color: transparent;
+}
+
+.input_identification input{
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    width: 100%;
+    padding: 7px 3px;
+    border-radius: 5px;
+    border: solid 1px grey;
+}
