@@ -1,4 +1,7 @@
-.nav {
+nav {
+    list-style-type: none;  
+}
+.style_ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -50,7 +53,7 @@ table, tr, td {
     border-radius: 4px;
     font-size: 16px;
     resize: none;
-
+}
 .content{
     display: flex;
     justify-content: center;
