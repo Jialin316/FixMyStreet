@@ -50,6 +50,7 @@ table, tr, td {
     border-radius: 4px;
     font-size: 16px;
     resize: none;
+}
 
 .content{
     display: flex;
