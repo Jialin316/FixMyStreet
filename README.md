@@ -12,9 +12,10 @@ Nous sommes le groupe A08 composé de :
     - Wu Jialin
 
 
-# Lien vers notre site
-Pour le moment nous n'avons pas encore déployer le site
-
+# Pour lancer le site
+Utiliser la commande 
+    node server.js
+Le site se lancera en localhost sur le port 8080 (accessible sur http://localhost:8080)
 
 # Capture d'écran
 <img src=>
