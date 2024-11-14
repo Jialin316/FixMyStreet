@@ -1,29 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Connexion</title>
-    <link rel="stylesheet" href="../static/style.css">
-    <link rel="icon" href="../static/images/Icone_Louv1cident.png">
-</head>
+<!-- Inclue les metadata tel que le titre, le css, l'icone du site -->
+<%- include('base/meta', {title: "Connexion"}) -%>
 
-<body>
-    
-    <header>
-        <img src="../static/images/Marque_Louv1cident.png" alt="Marque_Louv1cident">
-        <nav>
-            <ul class="style_ul">
-                <li class="list"><a class="bouton" href="./">Accueil</a></li>
-                <li class="list"><a class="bouton" href="./signal">Signaler un incident</a></li>
-                <li class="list" style="float: right;"><a class="bouton" href="./connexion">Se Connecter</a></li>
-            </ul>
-        </nav>
-    </header>
+<body>  
+    <!-- Inclue la partie header -->
+    <%- include('base/header') -%>
 
     <section class="content">
 
         <!-- Case pour la connexion à un compte existant -->
+        <!-- Renvoie    connexion_nom_utilisateur : nom d'utilisateur
+                        connexion_mdp : mot de passe -->
         <form class="identification_form" action="">
             <p>Se connecter</p>
 
@@ -49,6 +36,10 @@
         </form>
 
         <!-- Case pour l'inscription à un nouveau compte -->
+        <!-- Renvoie    inscription_nom_utilisateur : nom d'utilisateur
+                        inscription_mdp : mot de passe
+                        inscription_nom : nom complet
+                        inscription_email: email -->
         <form class="identification_form" action="">
             <p>Créer un compte</p>
 

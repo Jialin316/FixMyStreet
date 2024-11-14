@@ -1,25 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Signaler un incident</title>
-    <link rel="stylesheet" href="../static/style.css">
-    <link rel="icon" href="../static/images/Icone_Louv1cident.png">
-</head>
+<!-- Inclue les metadata tel que le titre, le css, l'icone du site -->
+<%- include('base/meta', {title: "Signaler"}) -%>
 
 <body>
-   
-    <header>
-        <img src="../static/images/Marque_Louv1cident.png" alt="Marque_Louv1cident">
-        <nav>
-            <ul class="style_ul">
-                <li class="list"><a class="bouton" href="./">Accueil</a></li>
-                <li class="list"><a class="bouton" href="./signal">Signaler un incident</a></li>
-                <li class="list" style="float: right;"><a class="bouton" href="./connexion">Se Connecter</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Inclue la partie header -->
+    <%- include('base/header') -%>
+
     <h1>Signaler un incidents</h1>
     <form action="">
         <label for="incident">Déscription de l'incident:</label>
