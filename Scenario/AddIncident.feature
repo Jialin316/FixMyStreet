@@ -1,4 +1,5 @@
 Feature: Authentification de l'utilisateur
+Fonctionalité : 
 Scenario: Ajouter un incident
 Étant donné que l'utilisateur est connecté
 Lorsque l'utilisateur soumet un nouveau rapport d'incident
