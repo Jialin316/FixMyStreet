@@ -9,21 +9,21 @@
     <section class="content">
 
         <!-- Case pour la connexion à un compte existant -->
-        <!-- Renvoie    connexion_nom_utilisateur : nom d'utilisateur
-                        connexion_mdp : mot de passe -->
-        <form class="identification_form" action="">
+        <!-- Renvoie email : Email
+                     password : mot de passe -->
+        <form class="identification_form" action="/users/login" method="post">
             <p>Se connecter</p>
 
-            <!-- Input du nom d'utilisateur -->
+            <!-- Input de l'email" -->
             <div class="input_identification">
-                <label for="connexion_nom_utilisateur">Nom d'utilisateur :</label>
-                <input required="" type="text" name="connexion_nom_utilisateur" id="connexion_nom_utilisateur">
+                <label for="email">Email :</label>
+                <input required="" type="text" name="email" id="email">
             </div>
 
             <!-- Input du mot de passe  -->
             <div class="input_identification">
-                <label for="connexion_mdp">Mot de passe :</label>
-                <input required="" type="password" name="connexion_mdp" id="connexion_mdp">
+                <label for="password">Mot de passe :</label>
+                <input required="" type="password" name="password" id="password">
             </div>
                 
             <!-- Bouton submit  -->
@@ -31,40 +31,44 @@
                 <input type="submit" value="Se connecter">
             </div>
 
-            <a href="">Mot de passe oublié ?</a>
-
         </form>
 
         <!-- Case pour l'inscription à un nouveau compte -->
-        <!-- Renvoie    inscription_nom_utilisateur : nom d'utilisateur
-                        inscription_mdp : mot de passe
-                        inscription_nom : nom complet
-                        inscription_email: email -->
-        <form class="identification_form" action="">
+        <!-- Renvoie username : nom d'utilisateur
+                     inscription_mdp : mot de passe
+                     inscription_nom : nom complet
+                     inscription_email: email -->
+        <form class="identification_form" action="/users/register" method="post">
             <p>Créer un compte</p>
 
             <!-- Input du nom d'utilisateur -->
             <div class="input_identification">
-                <label for="inscription_nom_utilisateur">Nom d'utilisateur :</label>
-                <input required="" type="text" name="inscription_nom_utilisateur" id="inscription_nom_utilisateur">
+                <label for="username">Nom d'utilisateur :</label>
+                <input required="true" type="text" name="username" id="username">
             </div>
 
             <!-- Input du mot de passe  -->
             <div class="input_identification">
-                <label for="inscription_mdp">Mot de passe :</label>
-                <input required="" type="password" name="inscription_mdp" id="inscription_mdp">
+                <label for="password">Mot de passe :</label>
+                <input required="true" type="password" name="password" id="password">
             </div>
 
             <!-- Input du nom complet -->
             <div class="input_identification">
-                <label for="">Nom complet :</label>
-                <input required="" type="text" name="inscription_nom" id="inscription_nom">
+                <label for="fullName">Nom complet :</label>
+                <input required="true" type="text" name="fullName" id="fullName">
             </div>
 
             <!-- Input de l'adresse mail -->
             <div class="input_identification">
-                <label for="">E-mail :</label>
-                <input required="" type="email" name="inscription_email" id="inscription_email">
+                <label for="email">E-mail :</label>
+                <input required="true" type="email" name="email" id="email">
+            </div>
+
+            <!-- Input de l'adresse mail -->
+            <div class="input_identification">
+                <label for="phone">Tél :</label>
+                <input required="true" type="phone" name="phone" id="phone">
             </div>
 
             <!-- Bouton submit  -->
