@@ -30,7 +30,7 @@ router.post("/register", async (req, res) => {
 
 // Page de connexion
 router.get("/login", (req, res) => {
-    res.render("templates/connexion.ejs");
+    res.render("connexion.ejs");
 });
 
 // Backend de la page de connexion

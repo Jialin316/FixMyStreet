@@ -10,14 +10,14 @@ app.use(express.urlencoded({ extended: false }));
 
 // Set l'app pour supporter ejs
 app.set("view engine", "ejs");
-// servir le css
-app.use(express.static("views"));
+// Utilise les fichier static
+app.use(express.static("public"));
 
 
 
 // Page d'accueil
 app.get("/", function (req, res) {
-    res.render("templates/acceuil.ejs");
+    res.render("acceuil.ejs");
 });
 
 // Routes pour les pages d'utilisateurs

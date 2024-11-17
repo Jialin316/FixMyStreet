@@ -6,7 +6,7 @@ const Incident = require("../models/Incident");
 
 // Page d'ajout d'incident
 router.get("/", function (req, res) {
-    res.render("templates/signalisation.ejs");
+    res.render("signalisation.ejs");
 });
 
 // Route pour ajouter un incident
