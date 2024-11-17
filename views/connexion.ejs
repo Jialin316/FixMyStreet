@@ -11,8 +11,8 @@
         <!-- Case pour la connexion à un compte existant -->
         <!-- Renvoie email : Email
                      password : mot de passe -->
-        <form class="identification_form" action="/users/login" method="post">
-            <p>Se connecter</p>
+        <form class="identification_form" action="/user/login" method="post">
+            <h1>Se connecter</h1>
 
             <!-- Input de l'email" -->
             <div class="input_identification">
@@ -31,6 +31,12 @@
                 <input type="submit" value="Se connecter">
             </div>
 
+            <% if (isvalid == "0") { %>
+                <div class="input_identification">
+                    <p>Mot de passe ou email incorrect</p>
+                </div>
+            <% } %>
+
         </form>
 
         <!-- Case pour l'inscription à un nouveau compte -->
@@ -38,8 +44,8 @@
                      inscription_mdp : mot de passe
                      inscription_nom : nom complet
                      inscription_email: email -->
-        <form class="identification_form" action="/users/register" method="post">
-            <p>Créer un compte</p>
+        <form class="identification_form" action="/user/register" method="post">
+            <h1>Créer un compte</h1>
 
             <!-- Input du nom d'utilisateur -->
             <div class="input_identification">
@@ -75,12 +81,30 @@
             <div class="submit_container">
                     <input type="submit" value="Créer un compte">
             </div>
+
+            <!-- Si le username est déja pris -->
+            <% if (isvalid == "1") { %>
+                <div class="input_identification">
+                    <p>Nom d'utilisateur déja pris</p>
+                </div>
+            <% } %>
+            
+            <!-- Si l'email est déja pris -->
+            <% if (isvalid == "2") { %>
+                <div class="input_identification">
+                    <p>Email déja pris</p>
+                </div>
+            <% } %>
+
+            <!-- Si le n° tel est déja pris -->
+            <% if (isvalid == "3") { %>
+                <div class="input_identification">
+                    <p>Numéro de téléphone déja pris</p>
+                </div>
+            <% } %>
         </form>
 
     </section>
-
-    <footer>
-    </footer>
 
 </body>
 

@@ -74,13 +74,26 @@ table, tr, td {
     margin: 10px 30px;
 }
 
-.identification_form p {
+.identification_form h1 {
     font-size: 30px;
     font-weight: bold;
     margin: 0 0 10px 0;
     max-width: 100%;
     color: #283f8a;
     font-family: Helvetica;
+}
+
+.identification_form p {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 10px;
+    font-size: medium;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    background: rgb(255, 65, 44);
+    color: #fff;
+    font-weight: bolder;
 }
 
 .identification_form .submit_container input{

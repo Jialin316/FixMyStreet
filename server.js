@@ -1,6 +1,8 @@
 // Importation des modules nécessaires
 const express = require("express");
-const mongoose = require("./database")
+const {mongoose, store} = require("./database")
+const session = require("express-session")
+
 
 // creation  de l'application Express
 const app = express();
@@ -8,16 +10,23 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Gestion des sessions
+app.use(session({
+    secret: "my random secret key",
+    cookie: {maxAge: 30000},
+    resave: false,
+    saveUninitialized: false,
+    store: store
+}))
+
 // Set l'app pour supporter ejs
 app.set("view engine", "ejs");
 // Utilise les fichier static
 app.use(express.static("public"));
 
-
-
 // Page d'accueil
 app.get("/", function (req, res) {
-    res.render("acceuil.ejs");
+    res.render("acceuil.ejs", {req: req});
 });
 
 // Routes pour les pages d'utilisateurs
@@ -25,8 +34,8 @@ const incidentRouter = require("./routes/incident")
 app.use("/incident", incidentRouter)
 
 // Routes pour les pages d'utilisateurs
-const userRouter = require("./routes/users")
-app.use("/users", userRouter)
+const userRouter = require("./routes/user")
+app.use("/user", userRouter)
 
 
 

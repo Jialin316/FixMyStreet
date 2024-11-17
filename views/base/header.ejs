@@ -11,7 +11,13 @@
         <ul class="style_ul">
             <li class="list"><a class="bouton" href="/">Acceuil</a></li>
             <li class="list"><a class="bouton" href="/incident">Signaler un incident</a></li>
-            <li class="list" style="float: right;"><a class="bouton" href="/users/login">Se Connecter</a></li>
+            <!-- Si utilisateur déja connecté alors affiche le bouton déconnexion -->
+            <% if (req.session.isAuth) { %>
+                <li class="list" style="float: right;"><a class="bouton" href="/user/logout">Se déconnecter</a></li>
+            <!-- Si utilisateur non connecté alors affiche le bouton connexion -->
+            <% } else { %>
+                <li class="list" style="float: right;"><a class="bouton" href="/user/login">Se Connecter</a></li>
+            <% } %>
         </ul>
     </nav>
 </header>

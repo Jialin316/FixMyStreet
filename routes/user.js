@@ -1,6 +1,7 @@
 // Création du routeur
 const express = require("express");
 const router = express.Router()
+const session = require("express-session")
 // Import du model User
 const User = require("../models/User");
 const bcrypt = require("bcrypt"); // hachageee mdp
@@ -11,9 +12,11 @@ router.post("/register", async (req, res) => {
     try {
         // Vérifier si l'utilisateur ou l'email existe déjà
         if (await User.findOne({ username })) 
-            return res.status(400).send("Ce nom d'utilisateur existe déja");
+            return res.redirect("login?valid=1");
         if (await User.findOne({ email })) 
-            return res.status(400).send("Cet email est déjà utilisé.");
+            return res.redirect("login?valid=2");
+        if (await User.findOne({ phone })) 
+            return res.redirect("login?valid=3");
 
         // Hacher le mot de passe
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -22,7 +25,9 @@ router.post("/register", async (req, res) => {
         const newUser = new User({ username, email, phone, password: hashedPassword, fullName });
         await newUser.save();
 
-        res.status(201).send("Compte créé avec succès");
+        req.session.isAuth = true;
+        req.session.user = {username: username, phone: phone}
+        res.status(200).redirect("/");
     } catch (error) {
         res.status(500).send("Erreur lors de la création du compte : " + error.message);
     }
@@ -30,7 +35,8 @@ router.post("/register", async (req, res) => {
 
 // Page de connexion
 router.get("/login", (req, res) => {
-    res.render("connexion.ejs");
+    const { valid } = req.query;
+    res.render("connexion.ejs", {req: req, isvalid: valid});
 });
 
 // Backend de la page de connexion
@@ -40,20 +46,29 @@ router.post("/login", async (req, res) => {
         // Rechercher si l'email existe deja
         const user = await User.findOne({ email });
         if (!user)
-            return res.status(400).send("Email ou mot de passe incorrect.");
+            return res.redirect("login?valid=0");
 
         // Vérifier le mot de passe
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch)
-            return res.status(400).send("Email ou mot de passe incorrect.");
+            return res.redirect("login?valid=0");
 
         // Si email et mot de passe correct
-        res.status(200).send("Connexion réussie");
+        req.session.isAuth = true;
+        req.session.user = {username: user.username, phone: user.phone}
+        res.status(200).redirect("/");
 
     } catch (error) {
         res.status(500).send("Erreur lors de la connexion : " + error.message);
     }
 });
+
+// Page de déconnexion
+router.get("/logout", (req, res) => {
+    req.session.isAuth = undefined;
+    req.session.user = undefined;
+    res.redirect("login")
+})
 
 // Exporte le modula afin de pouvoir l'utiliser dans server.js
 module.exports = router

@@ -4,9 +4,15 @@ const router = express.Router()
 // Import du model Incident
 const Incident = require("../models/Incident");
 
+// Middleware qui permet de rediriger l'utilisateur a la page de connexion si il n'est pas connecté
+const isAuth = (req, res, next) => {
+    if (req.session.isAuth == true) next()
+    else res.redirect("/user/login")
+}
+
 // Page d'ajout d'incident
-router.get("/", function (req, res) {
-    res.render("signalisation.ejs");
+router.get("/", isAuth, function (req, res) {
+    res.render("signalisation.ejs", {req: req});
 });
 
 // Route pour ajouter un incident

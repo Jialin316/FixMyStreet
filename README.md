@@ -23,7 +23,9 @@ Pour pouvoir lancer le site voici les packages qui doivent être installer :
     - "bcrypt": "5.1.1",
     - "ejs": "3.1.10",
     - "express": "4.21.0",
-    - "mongoose": "8.8.1"
+    - "mongoose": "8.8.1",
+    - "express-session": "^1.18.1",
+    - "connect-mongodb-session": "^5.0.0"
 
 
 # La database
