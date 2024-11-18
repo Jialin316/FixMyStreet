@@ -5,25 +5,29 @@
 <body>
     <!-- Inclue la partie header -->
     <%- include('base/header') -%>
-
     <h1>Incidents</h1>
 
     <table>
-        <tr>
-            <th>Emil</th>
-            <td>Incident1</td>
-            <td>date</td>
-        </tr>
-        <tr>
-            <th>thomas</th>
-            <td>Incident2</td>
-            <td>date</td>
-        </tr>
-        <tr>
-            <th>Adrien</th>
-            <td>Incident3</td>
-            <td>date</td>
-        </tr>
+        <thead>
+            <tr>
+                <th>Signalé Par</th>
+                <th>Déscription de l'incident</th>
+                <th>Date de L'incident</th>
+                <th>Localisation</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <% for( let index = 0; index < incidents.length; index++ ) { %>
+                <tr>
+                    <td> <%= incidents[index].reportedBy %> </td>
+                    <td> <%= incidents[index].description %> </td>
+                    <td> <%= incidents[index].dateTime %> </td>
+                    <td> <%= incidents[index].localisation %> </td>
+                </tr>
+            <% } %>
+        
+        </tbody>
     </table>
 </body>
 </html>

@@ -2,6 +2,7 @@
 const express = require("express");
 const {mongoose, store} = require("./database")
 const session = require("express-session")
+const Incident = require("./models/Incident");
 
 
 // creation  de l'application Express
@@ -13,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 // Gestion des sessions
 app.use(session({
     secret: "my random secret key",
-    cookie: {maxAge: 30000},
+    cookie: {maxAge: 3000000000000},
     resave: false,
     saveUninitialized: false,
     store: store
@@ -25,8 +26,9 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 
 // Page d'accueil
-app.get("/", function (req, res) {
-    res.render("acceuil.ejs", {req: req});
+app.get("/", async function (req, res) {
+    console.log(Incident)
+    res.render("acceuil.ejs", {req: req, incidents: await Incident.find({})});
 });
 
 // Routes pour les pages d'utilisateurs
@@ -37,7 +39,7 @@ app.use("/incident", incidentRouter)
 const userRouter = require("./routes/user")
 app.use("/user", userRouter)
 
-
+app.get
 
 // Lance le serveur sur le port choisi
 const portNum = 8080
