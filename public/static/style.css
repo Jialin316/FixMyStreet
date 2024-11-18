@@ -182,7 +182,7 @@ footer {
 /* Date en haut à droite */
 #current-date {
     font-size: 1rem;
-    color: #333;
+    color:#0056b3;
     margin-right: 1rem;
     text-align: right;
     position: absolute;
