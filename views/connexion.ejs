@@ -1,0 +1,111 @@
+
+<!-- Inclue les metadata tel que le titre, le css, l'icone du site -->
+<%- include('base/meta', {title: "Connexion"}) -%>
+
+<body>  
+    <!-- Inclue la partie header -->
+    <%- include('base/header') -%>
+
+    <section class="content">
+
+        <!-- Case pour la connexion à un compte existant -->
+        <!-- Renvoie email : Email
+                     password : mot de passe -->
+        <form class="identification_form" action="/user/login" method="post">
+            <h1>Se connecter</h1>
+
+            <!-- Input de l'email" -->
+            <div class="input_identification">
+                <label for="email">Email :</label>
+                <input required="" type="text" name="email" id="email">
+            </div>
+
+            <!-- Input du mot de passe  -->
+            <div class="input_identification">
+                <label for="password">Mot de passe :</label>
+                <input required="" type="password" name="password" id="password">
+            </div>
+                
+            <!-- Bouton submit  -->
+            <div class="submit_container">
+                <input type="submit" value="Se connecter">
+            </div>
+
+            <% if (isvalid == "0") { %>
+                <div class="input_identification">
+                    <p>Mot de passe ou email incorrect</p>
+                </div>
+            <% } %>
+
+        </form>
+
+        <!-- Case pour l'inscription à un nouveau compte -->
+        <!-- Renvoie username : nom d'utilisateur
+                     inscription_mdp : mot de passe
+                     inscription_nom : nom complet
+                     inscription_email: email -->
+        <form class="identification_form" action="/user/register" method="post">
+            <h1>Créer un compte</h1>
+
+            <!-- Input du nom d'utilisateur -->
+            <div class="input_identification">
+                <label for="username">Nom d'utilisateur :</label>
+                <input required="true" type="text" name="username" id="username">
+            </div>
+
+            <!-- Input du mot de passe  -->
+            <div class="input_identification">
+                <label for="password">Mot de passe :</label>
+                <input required="true" type="password" name="password" id="password">
+            </div>
+
+            <!-- Input du nom complet -->
+            <div class="input_identification">
+                <label for="fullName">Nom complet :</label>
+                <input required="true" type="text" name="fullName" id="fullName">
+            </div>
+
+            <!-- Input de l'adresse mail -->
+            <div class="input_identification">
+                <label for="email">E-mail :</label>
+                <input required="true" type="email" name="email" id="email">
+            </div>
+
+            <!-- Input de l'adresse mail -->
+            <div class="input_identification">
+                <label for="phone">Tél :</label>
+                <input required="true" type="phone" name="phone" id="phone">
+            </div>
+
+            <!-- Bouton submit  -->
+            <div class="submit_container">
+                    <input type="submit" value="Créer un compte">
+            </div>
+
+            <!-- Si le username est déja pris -->
+            <% if (isvalid == "1") { %>
+                <div class="input_identification">
+                    <p>Nom d'utilisateur déja pris</p>
+                </div>
+            <% } %>
+            
+            <!-- Si l'email est déja pris -->
+            <% if (isvalid == "2") { %>
+                <div class="input_identification">
+                    <p>Email déja pris</p>
+                </div>
+            <% } %>
+
+            <!-- Si le n° tel est déja pris -->
+            <% if (isvalid == "3") { %>
+                <div class="input_identification">
+                    <p>Numéro de téléphone déja pris</p>
+                </div>
+            <% } %>
+        </form>
+
+    </section>
+
+</body>
+
+</html>

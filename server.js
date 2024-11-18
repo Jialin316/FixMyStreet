@@ -1,26 +1,44 @@
-// Création de l'application
+// Importation des modules nécessaires
 const express = require("express");
+const {mongoose, store} = require("./database")
+const session = require("express-session")
+
+
+// creation  de l'application Express
 const app = express();
+// Pour pouvoir parser les données
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+// Gestion des sessions
+app.use(session({
+    secret: "my random secret key",
+    cookie: {maxAge: 30000},
+    resave: false,
+    saveUninitialized: false,
+    store: store
+}))
 
 // Set l'app pour supporter ejs
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
+// Utilise les fichier static
+app.use(express.static("public"));
 
-// Page d'accuil
-app.get("/", function(req, res) {
-    res.render("templates/acceuil.ejs");
+// Page d'accueil
+app.get("/", function (req, res) {
+    res.render("acceuil.ejs", {req: req});
 });
 
-// Page de connexion
-app.get("/connexion", function(req, res) {
-    res.render("templates/connexion.ejs");
-});
+// Routes pour les pages d'utilisateurs
+const incidentRouter = require("./routes/incident")
+app.use("/incident", incidentRouter)
 
-// Page d'ajout d'incident
-app.get("/signal", function(req, res) {
-    res.render("templates/signalisation.ejs");
-});
+// Routes pour les pages d'utilisateurs
+const userRouter = require("./routes/user")
+app.use("/user", userRouter)
 
 
-app.use(express.static('views'));
-// Lance le serveur sur le port 8080
-app.listen(8080);
+
+// Lance le serveur sur le port choisi
+const portNum = 8080
+app.listen(portNum, () => console.log("L'application est lancé sur http://localhost:" + portNum))
