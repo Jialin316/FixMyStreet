@@ -9,7 +9,7 @@
     <!-- Nav avec la liste des différente pages -->
     <nav>
         <ul class="style_ul">
-            <li class="list"><a class="bouton" href="/">Acceuil</a></li>
+            <li class="list"><a class="bouton" href="/">Accueil</a></li>
             <li class="list"><a class="bouton" href="/incident">Signaler un incident</a></li>
             <!-- Si utilisateur déja connecté alors affiche le bouton déconnexion -->
             <% if (req.session.isAuth) { %>
@@ -20,4 +20,20 @@
             <% } %>
         </ul>
     </nav>
+    <div id="current-date" style="margin-left: auto; font-weight: bold;"></div>
+
+
 </header>
+<script>
+    // fct pour afficher la date 
+    function displayCurrentDate() {
+        const dateElement = document.getElementById('current-date');
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        dateElement.textContent = `${day}/${month}/${year}`;
+    }
+    //appel de la fct pour chaque page
+    displayCurrentDate();
+</script>
