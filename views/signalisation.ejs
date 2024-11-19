@@ -6,16 +6,29 @@
     <!-- Inclue la partie header -->
     <%- include('base/header') -%>
 
-    <h1 style="text-align: center;">Signaler un Incendie</h1>
 
-    <form action="/signal" method="POST" class="form-incident" style="max-width: 600px; margin: auto; padding: 1rem; border: 1px solid #ccc; border-radius: 8px; background: #f9f9f9;">
-
-
-
-        <div class="form-group">
-            <label for="description">Description de l'incendie :</label>
-            <textarea id="description" name="description" required placeholder="Décrivez l'incendie..." rows="4" style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+    <% if (isPassed == "1") { %>
+        <div id="isPassed">
+            <%= isPassed %>
         </div>
+    <% } %>
+    <h1>Signaler un incidents</h1>
+    <p> Date: <%= now %> </p>
+    <p> <%= req.session.user.username %> </p>
+    <form action="/incident/add" method="post">
+        <label for="localisation">Lieu de l'incident: <br></label>
+        <input type="text" name="localisation">
+
+        <br>
+
+        <label for="incident">Déscription de l'incident:</label>
+        <textarea class="form_incident" name="description"></textarea>
+        
+        <input type="hidden" name="incidentId" value="3">
+        <input type="hidden" name="dateTime" value="<%= now %>">
+        <input type="hidden" name="reportedBy" value="<%= req.session.user.username %>">
+        <input type="submit">
+    </form>
 
         <div class="form-group" style="margin-top: 1rem;">
             <label for="date">Date de l'incendie :</label>
