@@ -35,8 +35,8 @@ router.post("/register", async (req, res) => {
 
 // Page de connexion
 router.get("/login", (req, res) => {
-    const { valid } = req.query;
-    res.render("connexion.ejs", {req: req, isvalid: valid});
+    const { valid, c_email } = req.query;
+    res.render("connexion.ejs", {req: req, isvalid: valid, email});
 });
 
 // Backend de la page de connexion
@@ -46,12 +46,12 @@ router.post("/login", async (req, res) => {
         // Rechercher si l'email existe deja
         const user = await User.findOne({ email });
         if (!user)
-            return res.redirect("login?valid=0");
+            return res.redirect("login?valid=0&email=" + email);
 
         // Vérifier le mot de passe
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch)
-            return res.redirect("login?valid=0");
+            return res.redirect("login?valid=0&email=" + email);
 
         // Si email et mot de passe correct
         req.session.isAuth = true;

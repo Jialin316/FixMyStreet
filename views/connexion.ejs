@@ -17,7 +17,7 @@
             <!-- Input de l'email" -->
             <div class="input_identification">
                 <label for="email">Email :</label>
-                <input required="" type="text" name="email" id="email">
+                <input required="" type="text" name="email" id="email" value="<%= email %>">
             </div>
 
             <!-- Input du mot de passe  -->
@@ -31,6 +31,7 @@
                 <input type="submit" value="Se connecter">
             </div>
 
+            <!-- Si l'utilisateur se trompe d'identtifiant alors message apparait -->
             <% if (isvalid == "0") { %>
                 <div class="input_identification">
                     <p>Mot de passe ou email incorrect</p>

@@ -12,10 +12,20 @@ const isAuth = (req, res, next) => {
 
 // Page d'ajout d'incident
 router.get("/", isAuth, async function (req, res) {
+    // Récupération des tous les incidents
     const incidents = await Incident.find({})
+
+    // Création de la date d'aujourd'hui
     const date = new Date();
+    const yyyy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    const today = `${yyyy}-${mm}-${dd}`;
+
+    // Variable nous permettant d'indiquer à l'utilisateur si l'incident a été ajouté ou non
     const { passed } = req.query;
-    res.render("signalisation.ejs", {req: req, incidents: incidents, isPassed: passed, now: date.toLocaleDateString('fr-FR', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})});
+
+    res.render("signalisation.ejs", {req: req, incidents: incidents, isPassed: passed, today: today});
 });
 
 // Route pour ajouter un incident
