@@ -29,7 +29,7 @@ Pour pouvoir lancer le site voici les packages qui doivent être installer :
 
 
 # La database
-La batabase MongoDB se crééra en local sur le port 27017 sous le nom de fixmystreet
+La batabase MongoDB se connectera en local sur le port 27017 dans la collection fixmystreet
 
 
 # Capture d'écran
