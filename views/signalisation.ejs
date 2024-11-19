@@ -5,6 +5,10 @@
     <!-- Inclue la partie header -->
     <%- include('base/header') -%>
 
+   
+    <div class="username-box">
+        <span class="username"><%= req.session.user.username %></span>
+    </div>
     <% if (isPassed == "1") { %>
         <div id="isPassed" class="success">
             <%= "Incident ajouté avec succès" %>
@@ -15,9 +19,6 @@
             <%= "Il manque des informations pour ajouter l'incident" %>
         </div>
     <% } %>
-    <div class="username-box">
-        <span class="username"><%= req.session.user.username %></span>
-    </div>
     <h1>Signaler un incident</h1>
     
     
