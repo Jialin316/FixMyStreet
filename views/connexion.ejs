@@ -33,8 +33,15 @@
 
             <!-- Si l'utilisateur se trompe d'identtifiant alors message apparait -->
             <% if (isvalid == "0") { %>
-                <div class="input_identification">
+                <div class="notif">
                     <p>Mot de passe ou email incorrect</p>
+                </div>
+            <% } %>
+            
+            <!-- Si l'utilisateur veut ajouter un incident sans compte -->
+            <% if (isvalid == "4") { %>
+                <div class="notif">
+                    <p>Veuillez vous connecter pour ajouter un incident</p>
                 </div>
             <% } %>
 
@@ -60,7 +67,7 @@
             </div>
             <!-- Input de l'adresse mail -->
             <div class="input_identification">
-                <label for="email">E-mail :</label>
+                <label for="email">Email :</label>
                 <input required="true" type="email" name="email" id="email">
             </div>
 
@@ -87,21 +94,21 @@
 
             <!-- Si le username est déja pris -->
             <% if (isvalid == "1") { %>
-                <div class="input_identification">
+                <div class="notif">
                     <p>Nom d'utilisateur déja pris</p>
                 </div>
             <% } %>
             
             <!-- Si l'email est déja pris -->
             <% if (isvalid == "2") { %>
-                <div class="input_identification">
+                <div class="notif">
                     <p>Email déja pris</p>
                 </div>
             <% } %>
 
             <!-- Si le n° tel est déja pris -->
             <% if (isvalid == "3") { %>
-                <div class="input_identification">
+                <div class="notif">
                     <p>Numéro de téléphone déja pris</p>
                 </div>
             <% } %>

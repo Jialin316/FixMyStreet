@@ -7,7 +7,7 @@ const Incident = require("../models/Incident");
 // Middleware qui permet de rediriger l'utilisateur a la page de connexion si il n'est pas connecté
 const isAuth = (req, res, next) => {
     if (req.session.isAuth == true) next()
-    else res.redirect("/user/login")
+    else res.redirect("/user/login?valid=4")
 }
 
 // Page d'ajout d'incident
@@ -39,5 +39,5 @@ router.post("/add", async (req, res) => {
     res.redirect("/incident?passed=0")
     }
 });
-// Exporte le modula afin de pouvoir l'utiliser dans server.js
+// Exporte le module afin de pouvoir l'utiliser dans server.js
 module.exports = router
