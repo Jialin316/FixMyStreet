@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Création de la Schema pour les comptes utilisateurs
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },

@@ -38,7 +38,6 @@ app.use("/incident", incidentRouter)
 const userRouter = require("./routes/user")
 app.use("/user", userRouter)
 
-app.get
 
 // Lance le serveur sur le port choisi
 const portNum = 8080

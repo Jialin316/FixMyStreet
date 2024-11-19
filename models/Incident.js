@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Création de la Schema pour les incidents
 const incidentSchema = new mongoose.Schema({
   incidentId: { type: String, required: true, unique: true },
   description: { type: String, required: true },

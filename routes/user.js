@@ -35,7 +35,7 @@ router.post("/register", async (req, res) => {
 
 // Page de connexion
 router.get("/login", (req, res) => {
-    const { valid, c_email } = req.query;
+    const { valid, email } = req.query;
     res.render("connexion.ejs", {req: req, isvalid: valid, email});
 });
 

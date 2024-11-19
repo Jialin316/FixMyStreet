@@ -33,7 +33,9 @@ La batabase MongoDB se crééra en local sur le port 27017 sous le nom de fixmys
 
 
 # Capture d'écran
-<img src=>
+<img src="docs/pageAcceuil.png">
+<img src="docs/pageConnexion.png">
+<img src="docs/pageSignaler.png">
 
 
 Groupe A08 - Louv1cident - 28/09/2024
