@@ -23,13 +23,13 @@
     
     <form action="/incident/add" method="post">
         <label for="localisation">Lieu de l'incident:</label>
-        <input type="text" name="localisation" required>
+        <input type="text" name="localisation" >
 
         <label for="date">Date de l'incident :</label>
-        <input type="date" id="date" name="dateTime" required>
+        <input type="date" id="date" name="dateTime" >
 
         <label for="incident">Déscription de l'incident:</label>
-        <textarea class="form_incident" name="description" required></textarea>
+        <textarea class="form_incident" name="description" ></textarea>
         
         <input type="hidden" name="incidentId" value="<%= incidents.length + 1 %>">
         <input type="hidden" name="reportedBy" value="<%= req.session.user.username %>">
