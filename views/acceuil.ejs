@@ -22,7 +22,7 @@
                 <tr>
                     <td> <%= incidents[index].reportedBy %> </td>
                     <td> <%= incidents[index].description %> </td>
-                    <td> <%= incidents[index].dateTime %> </td>
+                    <td> <%= new Date(incidents[index].dateTime).toLocaleDateString() %> </td>
                     <td> <%= incidents[index].localisation %> </td>
                 </tr>
             <% } %>
