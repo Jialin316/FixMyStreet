@@ -5,29 +5,37 @@
     <!-- Inclue la partie header -->
     <%- include('base/header') -%>
 
-   
+    <!-- Case indiquant le nom d'utilisateur de la personne connecté -->
     <div class="username-box">
         <span class="username"><%= req.session.user.username %></span>
     </div>
+
+    <!-- Si incident ajouté -->
     <% if (isPassed == "1") { %>
         <div id="isPassed" class="success">
             <%= "Incident ajouté avec succès" %>
         </div>
     <% } %>
+    <!-- Si incident non ajouté -->
     <% if (isPassed == "0") { %>
         <div id="isPassed" class="error">
             <%= "Il manque des informations pour ajouter l'incident" %>
         </div>
     <% } %>
+
+    <!-- Formulaire d'ajout d'incident -->
+    <!-- Renvoie localisation : la localistion
+                 dateTime : la date
+                 description : la description
+                 incidentId : un id unique 
+                 reportedBy : le username de la personne -->
     <h1>Signaler un incident</h1>
-    
-    
     <form action="/incident/add" method="post">
         <label for="localisation">Lieu de l'incident:</label>
-        <input type="text" name="localisation" >
+        <input type="text" name="localisation">
 
         <label for="date">Date de l'incident :</label>
-        <input type="date" id="date" name="dateTime" >
+        <input type="date" id="date" name="dateTime" value="<%= today %>">
 
         <label for="incident">Déscription de l'incident:</label>
         <textarea class="form_incident" name="description" ></textarea>
@@ -36,6 +44,7 @@
         <input type="hidden" name="reportedBy" value="<%= req.session.user.username %>">
         <input type="submit" value="Signaler">
     </form>
+
     <!-- Inclue la partie footer -->
     <%- include('base/footer') -%>
 </body>
