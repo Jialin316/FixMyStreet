@@ -27,7 +27,6 @@ app.use(express.static("public"));
 
 // Page d'accueil
 app.get("/", async function (req, res) {
-    console.log(Incident)
     res.render("acceuil.ejs", {req: req, incidents: await Incident.find({})});
 });
 

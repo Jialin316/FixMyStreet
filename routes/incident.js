@@ -11,10 +11,11 @@ const isAuth = (req, res, next) => {
 }
 
 // Page d'ajout d'incident
-router.get("/", isAuth, function (req, res) {
+router.get("/", isAuth, async function (req, res) {
+    const incidents = await Incident.find({})
     const date = new Date();
     const { passed } = req.query;
-    res.render("signalisation.ejs", {req: req, isPassed: passed, now: date.toLocaleDateString('fr-FR', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})});
+    res.render("signalisation.ejs", {req: req, incidents: incidents, isPassed: passed, now: date.toLocaleDateString('fr-FR', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})});
 });
 
 // Route pour ajouter un incident
@@ -25,8 +26,7 @@ router.post("/add", async (req, res) => {
     await newIncident.save();
     res.redirect("/incident?passed=1")
     } catch (error) {
-    //res.status(201).render("signalisation.ejs", {message: "Erreur lors de l'ajout de l'incident : "});
-    res.status(500).send("Erreur lors de l'ajout de l'incident : " + error.message);
+    res.redirect("/incident?passed=0")
     }
 });
 // Exporte le modula afin de pouvoir l'utiliser dans server.js

@@ -1,52 +1,41 @@
-
-<!-- Inclue les metadata tel que le titre, le css, l'icone du site -->
 <%- include('base/meta', {title: "Signaler"}) -%>
+<link rel="stylesheet" href="/static/style.css">
 
 <body>
     <!-- Inclue la partie header -->
     <%- include('base/header') -%>
 
-
     <% if (isPassed == "1") { %>
-        <div id="isPassed">
-            <%= isPassed %>
+        <div id="isPassed" class="success">
+            <%= "Incident ajouté avec succès" %>
         </div>
     <% } %>
-    <h1>Signaler un incidents</h1>
-    <p> Date: <%= now %> </p>
-    <p> <%= req.session.user.username %> </p>
+    <% if (isPassed == "0") { %>
+        <div id="isPassed" class="error">
+            <%= "Il manque des informations pour ajouter l'incident" %>
+        </div>
+    <% } %>
+    <div class="username-box">
+        <span class="username"><%= req.session.user.username %></span>
+    </div>
+    <h1>Signaler un incident</h1>
+    
+    
     <form action="/incident/add" method="post">
-        <label for="localisation">Lieu de l'incident: <br></label>
-        <input type="text" name="localisation">
+        <label for="localisation">Lieu de l'incident:</label>
+        <input type="text" name="localisation" >
 
-        <br>
+        <label for="date">Date de l'incident :</label>
+        <input type="date" id="date" name="dateTime" >
 
         <label for="incident">Déscription de l'incident:</label>
-        <textarea class="form_incident" name="description"></textarea>
+        <textarea class="form_incident" name="description" ></textarea>
         
-        <input type="hidden" name="incidentId" value="3">
-        <input type="hidden" name="dateTime" value="<%= now %>">
+        <input type="hidden" name="incidentId" value="<%= incidents.length + 1 %>">
         <input type="hidden" name="reportedBy" value="<%= req.session.user.username %>">
-        <input type="submit">
+        <input type="submit" value="Signaler">
     </form>
-
-        <div class="form-group" style="margin-top: 1rem;">
-            <label for="date">Date de l'incendie :</label>
-            <input type="date" id="date" name="date" required style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;">
-        </div>
-
-
-        <div class="form-group" style="margin-top: 1rem;">
-            <label for="lieu">Lieu de l'incendie :</label>
-            <input type="text" id="lieu" name="lieu" required placeholder="Ex: Rue, Ville, Région" style="width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 5px;">
-        </div>
-
-
-        <div class="form-group" style="text-align: center; margin-top: 1rem;">
-            <button type="submit">
-                Signaler l'incendie
-            </button>
-        </div>
-    </form>
+    <!-- Inclue la partie footer -->
+    <%- include('base/footer') -%>
 </body>
 </html>
